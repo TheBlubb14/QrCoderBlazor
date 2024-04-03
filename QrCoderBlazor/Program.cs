@@ -1,4 +1,4 @@
-using BlazorApp_empty1;
+using QrCoderBlazor;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

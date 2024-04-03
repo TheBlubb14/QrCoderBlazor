@@ -1,10 +1,13 @@
-﻿using QRCoder.Extensions;
+﻿#nullable disable
+using QRCoder.Extensions;
 using static QRCoder.QRCodeGenerator;
 using static QRCoder.SvgQRCode;
 using System.Collections;
 using System.Drawing;
 using System.Text;
 
+// Copied from https://github.com/codebude/QRCoder/blob/c90e1efea836637472f1b2acf714136acd3f1b03/QRCoder/SvgQRCode.cs
+// As long as there is no new nuget version published
 namespace QRCoder;
 
 public class SvgQRCode : AbstractQRCode, IDisposable
@@ -374,3 +377,4 @@ public static class SvgQRCodeHelper
             return qrCode.GetGraphic(pixelsPerModule, darkColorHex, lightColorHex, drawQuietZones, sizingMode, logo);
     }
 }
+#nullable restore

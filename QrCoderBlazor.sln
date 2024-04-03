@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp-empty1", "BlazorApp-empty1\BlazorApp-empty1.csproj", "{D945D16F-5AA8-44AE-BEE1-E582CD090C37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QrCoderBlazor", "QrCoderBlazor\QrCoderBlazor.csproj", "{D945D16F-5AA8-44AE-BEE1-E582CD090C37}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{73335D4F-4840-4E88-B1D3-01BD722699C7}"
 EndProject
