@@ -31,6 +31,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Add QrCoder GitHub registry to NuGet
+        run: nuget sources add -name "QrCoder CI" -Source https://nuget.pkg.github.com/codebude/index.json -Username TheBlubb14 -Password ${{ secrets.THEBLUBB14_PACKAGES_READ }}
+
       # publishes Blazor project to the release folder
       - name: Publish Project
         run: dotnet publish QrCoderBlazor/QrCoderBlazor.csproj -c Release -o release --nologo
