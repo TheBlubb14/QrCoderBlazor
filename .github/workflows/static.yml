@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Add QrCoder GitHub registry to NuGet
-        run: dotnet nuget add source -name "QrCoder CI" -Source https://nuget.pkg.github.com/codebude/index.json -Username TheBlubb14 -Password ${{ secrets.THEBLUBB14_PACKAGES_READ }}
+        run: dotnet nuget add source https://nuget.pkg.github.com/codebude/index.json --name "QrCoder CI" --username TheBlubb14 -password ${{ secrets.THEBLUBB14_PACKAGES_READ }}
 
       # publishes Blazor project to the release folder
       - name: Publish Project
