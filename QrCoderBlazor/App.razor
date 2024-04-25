@@ -28,6 +28,10 @@
                 <td><input type="number" @bind-value="pixelsPerModule" min="1" /></td>
             </tr>
             <tr>
+                <th scope="row">Icon size percentage</th>
+                <td><input type="number" @bind-value="iconSizePercent" min="1" max="100" /></td>
+            </tr>
+            <tr>
                 <th scope="row">Foreground Color</th>
                 <td><input type="color" @bind-value="foregroundColor" /></td>
             </tr>
@@ -42,6 +46,10 @@
             <tr>
                 <th scope="row">Quiet zones</th>
                 <td><InputCheckbox @bind-Value="quietZones" /></td>
+            </tr>
+            <tr>
+                <th scope="row">Fill logo background</th>
+                <td><InputCheckbox @bind-Value="fillLogoBackground" /></td>
             </tr>
             <tr>
                 <th scope="row">QR Content</th>
@@ -62,9 +70,11 @@
 
     private string ecc = "M";
     private string pixelsPerModule = "24";
+    private string iconSizePercent = "15";
     private string foregroundColor = "#000000";
     private string backgroundColor = "#FFFFFF";
     private bool quietZones = true;
+    private bool fillLogoBackground = true;
 
     private string? qrCodeInput;
     private MarkupString svgText;
@@ -86,7 +96,12 @@
         SvgQRCode.SvgLogo? logo = null;
 
         if (selectedFile.Length > 0)
-            logo = new SvgQRCode.SvgLogo(selectedFile);
+        {
+            if (!int.TryParse(iconSizePercent, out var iconSize))
+                iconSize = 15;
+
+            logo = new SvgQRCode.SvgLogo(selectedFile, iconSize, fillLogoBackground);
+        }
 
         var qrCodeData = QRCoder.QRCodeGenerator.GenerateQrCode(qrCodeInput, Enum.Parse<QRCoder.QRCodeGenerator.ECCLevel>(ecc));
         var svg = new QRCoder.SvgQRCode(qrCodeData);
